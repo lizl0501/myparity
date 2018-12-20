@@ -1,6 +1,9 @@
 package com.jk.pojo;
+
+import java.io.Serializable;
+
 //b-1-0发布定制需求-项目基本信息及关键参数
-public class CustomBean {
+public class CustomBean implements Serializable {
 
     private String id;          //产品Id
 

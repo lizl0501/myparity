@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>common</module>
         <module>buy_api</module>
         <module>buy_client</module>
         <module>buy_feign</module>
@@ -18,6 +17,7 @@
         <module>sell_client</module>
         <module>sell_feign</module>
         <module>sell_server</module>
+        <module>springcommon</module>
     </modules>
 
 

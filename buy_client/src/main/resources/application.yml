@@ -1,0 +1,46 @@
+server:
+  port: 8085
+
+spring:
+  rabbitmq:
+    host: 192.168.1.141
+    port: 5672
+    username: shen
+    password: lei
+  application:
+    name: cloudprovider
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.1.141:3306/parity?useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+
+    maxWait: 60000
+
+    timeBetweenEvictionRunsMillis: 60000
+
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    useGlobalDataSourceStat: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8088/eureka
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml

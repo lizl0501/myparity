@@ -1,0 +1,31 @@
+server:
+  port: 8281
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: 36000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+  rabbitmq:
+    host: 192.168.1.127
+
+    port: 5672
+    username: admin
+    password: admin
+  application:
+    name: cloudribbon
+
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8088/eureka

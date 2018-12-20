@@ -1,5 +1,5 @@
 package com.jk.pojo;
-
+//b-1-0发布定制需求-项目基本信息及关键参数
 public class CustomBean {
 
     private String id;          //产品Id

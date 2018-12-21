@@ -19,7 +19,7 @@ public class CustomController {
     private CustomService customService;
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate redisCacheTemplate;
     /**
      * b-1-0发布定制需求-项目基本信息及关键参数
      * @param customBean
@@ -29,14 +29,7 @@ public class CustomController {
     @ResponseBody
     public String addCustom(CustomBean customBean){
         customBean.setId(UUID.randomUUID().toString());
-        redisTemplate.opsForValue().set("custom",customBean);
-  /*      //生成token
-        String token = UUID.randomUUID().toString();
-//把用户信息写入redis
-        jedisClient.set(REDIS_USER_SESSION_KEY + ":" + token,JsonUtils.objectToJson(user));
-//设置session的过期时间 时间单位是秒
-        jedisClient.expire(REDIS_USER_SESSION_KEY + ":" + token, 1800);*/
-        String token = UUID.randomUUID().toString();
+        redisCacheTemplate.opsForValue().set("custom",customBean);
         return "123";
     }
 

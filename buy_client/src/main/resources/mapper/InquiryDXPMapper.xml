@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.InquiryDXPMapper">
+
+	<!--新增B-1-3询价单-->
+	<insert id="savainquiry">
+		insert into inquiry(qid,stratDate,endDate,gongbuDate,qiwangday,gongyingshang,
+		lowcount,zongjia,fukaunjiedian,fukaunbili,fukaunday,fapiaotype,kaipiao,jiesuanshang,
+		peisong,adress,peizhu,fujian,status,id,name,count,type,minentrance,minenunit,
+		maxentrance,maxenunit,minexport,minexunit,maxexport,maxexunit,flow,booster,brand,
+		carton,material,remarks,accessory,demand,trench,bigType,middleType,smallType)
+		 values (#{inq.qid},#{inq.stratDate},#{inq.endDate},#{inq.gongbuDate},#{inq.qiwangday},#{inq.gongyingshang},
+		 #{inq.lowcount},#{inq.zongjia},#{inq.fukaunjiedian},#{inq.fukaunbili},#{inq.fukaunday},#{inq.fapiaotype},#{inq.kaipiao},
+		 #{inq.jiesuanshang},#{inq.peisong},#{inq.adress},#{inq.peizhu},#{inq.fujian},#{inq.status},#{inq.id},
+		 #{inq.name},#{inq.count},#{inq.type},#{inq.minentrance},#{inq.minenunit},#{inq.maxentrance},
+		 #{inq.maxenunit},#{inq.minexport},#{inq.minexunit},#{inq.maxexport},#{inq.maxexunit},#{inq.flow},
+		 #{inq.booster},#{inq.brand},#{inq.carton},#{inq.material},#{inq.remarks},#{inq.accessory},#{inq.demand},
+		 #{inq.trench},#{inq.bigType},#{inq.middleType},#{inq.smallType})
+	</insert>
+
+	<select id="queryInquiryById" resultType="com.jk.pojo.inquiryDXP">
+		select * from inquiry where qid=#{qid}
+	</select>
+
+	<update id="updateinquiry">
+		update inquiry
+		<set>
+		<if test="inq.stratDate != null">
+			stratDate=#{inq.stratDate},
+		</if>
+		<if test="inq.endDate != null">
+			endDate=#{inq.endDate},
+		</if>
+		<if test="inq.gongbuDate != null">
+			gongbuDate=#{inq.gongbuDate},
+		</if>
+		<if test="inq.qiwangday != null">
+			qiwangday=#{inq.qiwangday},
+		</if>
+		<if test="inq.gongyingshang != null">
+			gongyingshang=#{inq.gongyingshang},
+		</if>
+		<if test="inq.lowcount != null">
+			lowcount=#{inq.lowcount},
+		</if>
+		<if test="inq.zongjia != null">
+			zongjia=#{inq.zongjia},
+		</if>
+		<if test="inq.fukaunjiedian != null">
+			fukaunjiedian=#{inq.fukaunjiedian},
+		</if>
+		<if test="inq.fukaunbili != null">
+			fukaunbili=#{inq.fukaunbili},
+		</if>
+		<if test="inq.fukaunday != null">
+			fukaunday=#{inq.fukaunday},
+		</if>
+		<if test="inq.fapiaotype != null">
+			fapiaotype=#{inq.fapiaotype},
+		</if>
+		<if test="inq.kaipiao != null">
+			kaipiao=#{inq.kaipiao},
+		</if>
+		<if test="inq.jiesuanshang != null">
+			jiesuanshang=#{inq.jiesuanshang},
+		</if>
+		<if test="inq.peisong != null">
+			peisong=#{inq.peisong},
+		</if>
+		<if test="inq.adress != null">
+			adress=#{inq.adress},
+		</if>
+		<if test="inq.peizhu != null">
+			peizhu=#{inq.peizhu},
+		</if>
+		<if test="inq.fujian != null">
+			fujian=#{inq.fujian},
+		</if>
+		<if test="inq.status != null">
+			status=#{inq.status},
+		</if>
+		<if test="inq.id != null">
+			id=#{inq.id},
+		</if>
+		<if test="inq.name != null">
+			name=#{inq.name},
+		</if>
+		<if test="inq.count != null">
+			count=#{inq.count},
+		</if>
+		<if test="inq.type != null">
+			type=#{inq.type},
+		</if>
+		<if test="inq.minentrance != null">
+			minentrance=#{inq.minentrance},
+		</if>
+		<if test="inq.minenunit != null">
+			minenunit=#{inq.minenunit},
+		</if>
+		<if test="inq.maxentrance != null">
+			maxentrance=#{inq.maxentrance},
+		</if>
+		<if test="inq.maxenunit != null">
+			maxenunit=#{inq.maxenunit},
+		</if>
+		<if test="inq.maxentrance != null">
+			minexport=#{inq.minexport},
+		</if>
+		<if test="inq.minexunit != null">
+			minexunit=#{inq.minexunit},
+		</if>
+		<if test="inq.maxexport != null">
+			maxexport=#{inq.maxexport},
+		</if>
+		<if test="inq.maxexunit != null">
+			maxexunit=#{inq.maxexunit},
+		</if>
+		<if test="inq.flow != null">
+			flow=#{inq.flow},
+		</if>
+		<if test="inq.booster != null">
+			booster=#{inq.booster},
+		</if>
+		<if test="inq.brand != null">
+			brand=#{inq.brand},
+		</if>
+		<if test="inq.carton != null">
+			carton=#{inq.carton},
+		</if>
+		<if test="inq.material != null">
+			material=#{inq.material},
+		</if>
+		<if test="inq.remarks != null">
+			remarks=#{inq.remarks},
+		</if>
+		<if test="inq.accessory != null">
+			accessory=#{inq.accessory},
+		</if>
+		<if test="inq.demand != null">
+			demand=#{inq.demand},
+		</if>
+		<if test="inq.trench != null">
+			trench=#{inq.trench},
+		</if>
+		<if test="inq.bigType != null">
+			bigType=#{inq.bigType},
+		</if>
+		<if test="inq.middleType != null">
+			middleType=#{inq.middleType},
+		</if>
+		<if test="inq.smallType != null">
+			smallType=#{inq.smallType}
+		</if>
+		</set>
+		where qid=#{inq.qid}
+	</update>
+
+</mapper>

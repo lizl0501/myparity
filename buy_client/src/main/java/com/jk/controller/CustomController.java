@@ -1,13 +1,20 @@
 package com.jk.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.jk.pojo.inquiryDXP;
 import com.jk.service.CustomService;
 import com.jk.serviceapi.CustomServiceApi;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class CustomController implements CustomServiceApi {
 
     @Autowired
     private CustomService customService;
+
 }

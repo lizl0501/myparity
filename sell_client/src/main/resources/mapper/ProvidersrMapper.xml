@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.providers.ProvidersMapper">
+
+	<select id="querySelect" resultType="com.jk.pojo.providers.Tt">
+		select * from  t_tt
+	</select>
+
+	<select id="selectTtCount" resultType="long">
+		select count(*) from  t_tt
+		<where>
+			<if test="tt.name != null and tt.name != ''">
+				and name like '%${tt.name}%'
+			</if>
+			<if test="tt.qd !=null and tt.qd != ''">
+				and qd =#{tt.qd}
+			</if>
+			<if test="tt.zt!=null">
+				and zt =#{tt.zt}
+			</if>
+			<if test="tt.maxsj !=null and tt.maxsj !=''">
+				and sj &lt;{tt.maxsj}
+			</if>
+			<if test="tt.minsj !=null and tt.minsj !=''">
+				and sj &gt;{tt.minsj}
+			</if>
+		</where>
+	</select>
+
+	<select id="SelectTt" resultType="com.jk.pojo.providers.Tt">
+		select * from t_tt
+		<where>
+			<if test="tt.name != null and tt.name != '' ">
+				and name like '%${tt.name}%'
+			</if>
+			<if test="tt.qd !=null and tt.qd != ''">
+				and qd =#{tt.qd}
+			</if>
+			<if test="tt.zt!=null">
+				and zt =#{tt.zt}
+			</if>
+			<if test="tt.maxsj !=null and tt.maxsj !=''">
+				and sj &lt;{tt.maxsj}
+			</if>
+			<if test="tt.minsj !=null and tt.minsj !=''">
+				and sj &gt;{tt.minsj}
+			</if>
+		</where>
+		limit #{page},#{rows}
+	</select>
+
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.XzlmMapper">
+
+	<select id="queryXzlmTrenchBean" resultType="com.jk.pojo.XzlmTrenchBean">
+		select * from t_xzlmtrench
+	</select>
+
+	<select id="queryXzlmTypeBean" resultType="com.jk.pojo.XzlmTypeBean">
+		select * from t_xzlmtype where pid = #{pid}
+	</select>
+
+</mapper>

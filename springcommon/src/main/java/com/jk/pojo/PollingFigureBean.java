@@ -5,6 +5,7 @@ import java.util.Date;
 public class PollingFigureBean {
 //询图
     private String pollingfigureid; //主题id
+    private String pollingfigurestatus="0"; //询图状态
     private String startdate;  //开始日期
     private String customdate; //自定义日期
     private String asofthedate; //截止日期
@@ -61,6 +62,14 @@ public class PollingFigureBean {
     private String middleType;  //中类型
     private String smallType;   //小类型
 
+
+    public String getPollingfigurestatus() {
+        return pollingfigurestatus;
+    }
+
+    public void setPollingfigurestatus(String pollingfigurestatus) {
+        this.pollingfigurestatus = pollingfigurestatus;
+    }
 
     public String getPollingfigureid() {
         return pollingfigureid;
@@ -338,6 +347,7 @@ public class PollingFigureBean {
     public String toString() {
         return "PollingFigureBean{" +
                 "pollingfigureid='" + pollingfigureid + '\'' +
+                ", pollingfigurestatus='" + pollingfigurestatus + '\'' +
                 ", startdate='" + startdate + '\'' +
                 ", customdate='" + customdate + '\'' +
                 ", asofthedate='" + asofthedate + '\'' +

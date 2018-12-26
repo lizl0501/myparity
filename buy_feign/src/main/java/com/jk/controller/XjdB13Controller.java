@@ -83,13 +83,39 @@ public class XjdB13Controller {
         amqpTemplate.convertAndSend("myqueue",JSON.toJSONString(inq));
     }
 
-    /*@RequestMapping("/saveinquiry")
+    @RequestMapping("/saveinquiry")
     @ResponseBody
     public String setString(inquiryDXP iii){
         iii.setQid(UUID.randomUUID().toString());
+        CustomBean customBean = (CustomBean) redisCacheTemplate.opsForValue().get("custom");
+        XzlmCustomBean xzlm = (XzlmCustomBean) redisCacheTemplate.opsForValue().get("asd");
+        iii.setId(customBean.getId());
+        iii.setName(customBean.getName());
+        iii.setCount(customBean.getCount());
+        iii.setType(customBean.getType());
+        iii.setMinentrance(customBean.getMinentrance());
+        iii.setMinenunit(customBean.getMinenunit());
+        iii.setMaxentrance(customBean.getMaxentrance());
+        iii.setMaxenunit(customBean.getMaxenunit());
+        iii.setMinexport(customBean.getMinexport());
+        iii.setMinexunit(customBean.getMinexunit());
+        iii.setMaxexport(customBean.getMaxexport());
+        iii.setMaxexunit(customBean.getMaxexunit());
+        iii.setFlow(customBean.getFlow());
+        iii.setBooster(customBean.getBooster());
+        iii.setBrand(customBean.getBrand());
+        iii.setCarton(customBean.getCarton());
+        iii.setMaterial(customBean.getMaterial());
+        iii.setRemarks(customBean.getRemarks());
+        iii.setAccessory(customBean.getAccessory());
+        iii.setDemand(customBean.getDemand());
+        iii.setTrench(xzlm.getTrench());
+        iii.setBigType(xzlm.getBigType());
+        iii.setMiddleType(xzlm.getMiddleType());
+        iii.setSmallType(xzlm.getSmallType());
         redisCacheTemplate.opsForValue().set("str",iii);
         inquiryDXP map2 = (inquiryDXP) redisCacheTemplate.opsForValue().get("str");
         return "done";
-    }*/
+    }
 
 }

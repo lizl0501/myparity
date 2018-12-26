@@ -75,11 +75,32 @@ public class PollingFigureB1Controller {
         return "1";
     }
 
+    /**B3-1
+     * 询图单查询
+     * @return
+     */
     @GetMapping("selectPollingFigure")
     @ResponseBody
     public List<PollingFigureBean> selectPollingFigure(){
-      return pollingFigureService.selectPollingFigure();
+        return pollingFigureService.selectPollingFigure();
+    }
+
+    /**B3-1 有一个寻图单修改点击调用此方法
+     * 寻图单回显
+     * @param pollingfigureid
+     * @return
+     */
+    @GetMapping("PollingFigureHx")
+    @ResponseBody
+    public PollingFigureBean PollingFigureHx(String pollingfigureid){
+        return pollingFigureService.PollingFigureHx(pollingfigureid);
     }
 
 
+    @RequestMapping("PollingFigureUpdate")
+    @ResponseBody
+    public String PollingFigureUpdate(PollingFigureBean pollingFigureBean){
+        amqpTemplate.convertAndSend("savePollingFigureMQ", JSON.toJSONString(pollingFigureBean));
+        return "1";
+    }
 }

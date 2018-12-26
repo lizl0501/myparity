@@ -31,4 +31,23 @@ public class PollingfigureControllerImpl implements PollingFigureB1ServiceApi {
        PollingFigureBean PollingFigureBean = JSON.parseObject(pollingFigureBean, PollingFigureBean.class);
        pollingFigureServices.savePollingFigure(PollingFigureBean);
     }
+
+    /**
+     * 寻图单回显
+     */
+    @Override
+    public PollingFigureBean PollingFigureHx(String pollingfigureid) {
+        return pollingFigureServices.PollingFigureHx(pollingfigureid);
+    }
+
+    /**
+     * B-1-1
+     * 修改询图单
+     * @param pollingFigureBean
+     */
+    @RabbitListener(queues = "savePollingFigureMQ")
+    public void PollingFigureUpdate(String pollingFigureBean){
+        PollingFigureBean PollingFigureBean = JSON.parseObject(pollingFigureBean, PollingFigureBean.class);
+        pollingFigureServices.PollingFigureUpdate(PollingFigureBean);
+    }
 }

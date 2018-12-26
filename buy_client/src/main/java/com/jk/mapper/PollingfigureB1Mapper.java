@@ -10,4 +10,8 @@ public interface PollingfigureB1Mapper {
     List<PollingFigureBean> selectPollingFigure();
 
     void  savePollingFigure(@Param("pollingFigureBean") PollingFigureBean pollingFigureBean);
+
+    PollingFigureBean PollingFigureHx(@Param("pollingfigureid")String pollingfigureid);
+
+    void  PollingFigureUpdate(@Param("pollingFigureBean") PollingFigureBean pollingFigureBean);
 }

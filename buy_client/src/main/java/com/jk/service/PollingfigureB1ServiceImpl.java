@@ -23,4 +23,14 @@ public class PollingfigureB1ServiceImpl implements PollingfigureB1Service {
         pollingfigureMapper.savePollingFigure(pollingFigureBean);
 
     }
+
+    @Override
+    public PollingFigureBean PollingFigureHx(String pollingfigureid) {
+        return pollingfigureMapper.PollingFigureHx(pollingfigureid);
+    }
+
+    @Override
+    public void PollingFigureUpdate(PollingFigureBean pollingFigureBean) {
+        pollingfigureMapper.PollingFigureUpdate(pollingFigureBean);
+    }
 }

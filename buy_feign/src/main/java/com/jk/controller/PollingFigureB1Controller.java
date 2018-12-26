@@ -70,8 +70,44 @@ public class PollingFigureB1Controller {
         pollingFigureBean.setBigType(XzlmCustomredis.getBigType());
         pollingFigureBean.setMiddleType(XzlmCustomredis.getMiddleType());
         pollingFigureBean.setSmallType(XzlmCustomredis.getSmallType());
-        //存到rabbitmq里面
+        //存到rabbitmq里面转成string格式存进去
         amqpTemplate.convertAndSend("savePollingFigureMQ", JSON.toJSONString(pollingFigureBean));
+        return "1";
+    }
+    @PostMapping("savePollingFigureredis")
+    @ResponseBody
+    public String savePollingFigureredis(PollingFigureBean pollingFigureBean){
+        //给主键附UUID
+        pollingFigureBean.setPollingfigureid(UUID.randomUUID().toString());
+        //从Redis里面获取到值 用对应的实体类接收
+        XzlmCustomBean XzlmCustomredis = (XzlmCustomBean) redisCacheTemplate.opsForValue().get("asd");
+        CustomBean CustomBeanredis = (CustomBean) redisCacheTemplate.opsForValue().get("custom");
+        //将获取到的值set进主实体类
+        pollingFigureBean.setName(CustomBeanredis.getName());
+        pollingFigureBean.setCount(CustomBeanredis.getCount());
+        pollingFigureBean.setType(CustomBeanredis.getType());
+        pollingFigureBean.setMinentrance(CustomBeanredis.getMinentrance());
+        pollingFigureBean.setMinenunit(CustomBeanredis.getMinenunit());
+        pollingFigureBean.setMaxentrance(CustomBeanredis.getMaxentrance());
+        pollingFigureBean.setMaxenunit(CustomBeanredis.getMaxenunit());
+        pollingFigureBean.setMinexport(CustomBeanredis.getMinexport());
+        pollingFigureBean.setMinexunit(CustomBeanredis.getMinexunit());
+        pollingFigureBean.setMaxexport(CustomBeanredis.getMaxexport());
+        pollingFigureBean.setMaxexunit(CustomBeanredis.getMaxexunit());
+        pollingFigureBean.setFlow(CustomBeanredis.getFlow());
+        pollingFigureBean.setBooster(CustomBeanredis.getBooster());
+        pollingFigureBean.setBrand(CustomBeanredis.getBrand());
+        pollingFigureBean.setCarton(CustomBeanredis.getCarton());
+        pollingFigureBean.setMaterial(CustomBeanredis.getMaterial());
+        pollingFigureBean.setRemarks(CustomBeanredis.getRemarks());
+        pollingFigureBean.setAccessory(CustomBeanredis.getAccessory());
+        pollingFigureBean.setDemand(CustomBeanredis.getDemand());
+        pollingFigureBean.setTrench(XzlmCustomredis.getTrench());
+        pollingFigureBean.setBigType(XzlmCustomredis.getBigType());
+        pollingFigureBean.setMiddleType(XzlmCustomredis.getMiddleType());
+        pollingFigureBean.setSmallType(XzlmCustomredis.getSmallType());
+        //存到redis里面
+        redisCacheTemplate.opsForValue().set("pollingFigureBean",pollingFigureBean);
         return "1";
     }
 

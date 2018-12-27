@@ -8,6 +8,8 @@ public class CaiLiaoDb {
     private String fuwuxiang; //服务项
     private String name;        //产品名称
 
+    private String id;
+
     private String count;       //产品数量
 
     private String type;        //产品类型
@@ -49,6 +51,7 @@ public class CaiLiaoDb {
     private String smallType;   //小类型
 
 
+    private String qid;
     private String stratDate;//开始时间
     private String endDate;//结束时间
     private String gongbuDate;//公布时间
@@ -66,6 +69,15 @@ public class CaiLiaoDb {
     private String adress;// 收货地址
     private String peizhu;// 备注信息
     private String fujian;// 附件
+
+    public String getQid() {
+        return qid;
+    }
+
+    public void setQid(String qid) {
+        this.qid = qid;
+    }
+
     private String status;// 您是否提供材料单
     public String getCid() {
         return cid;
@@ -433,5 +445,13 @@ public class CaiLiaoDb {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

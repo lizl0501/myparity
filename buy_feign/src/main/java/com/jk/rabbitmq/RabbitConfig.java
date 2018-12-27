@@ -24,5 +24,9 @@ public class RabbitConfig {
         //参数为队列名称
         return new Queue("savePollingFigureMQ");
     }
-
+    @Bean
+    public Queue addinquir() {
+        //参数为队列名称
+        return new Queue("addinquir");
+    }
 }

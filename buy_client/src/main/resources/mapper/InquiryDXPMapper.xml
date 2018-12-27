@@ -23,7 +23,7 @@
 		select * from inquiry where qid=#{qid}
 	</select>
 
-	<update id="updateinquiry">
+	<!--<update id="updateinquiry">
 		update inquiry
 		<set>
 		<if test="inq.stratDate != null">
@@ -163,6 +163,6 @@
 		</if>
 		</set>
 		where qid=#{inq.qid}
-	</update>
+	</update>-->
 
 </mapper>

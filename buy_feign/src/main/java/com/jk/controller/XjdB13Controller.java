@@ -60,7 +60,7 @@ public class XjdB13Controller {
         inq.setBigType(xzlm.getBigType());
         inq.setMiddleType(xzlm.getMiddleType());
         inq.setSmallType(xzlm.getSmallType());
-        amqpTemplate.convertAndSend("myqueue",JSON.toJSONString(inq));
+        amqpTemplate.convertAndSend("addinquir",JSON.toJSONString(inq));
     }
 
     /**
@@ -78,11 +78,11 @@ public class XjdB13Controller {
     /**
      *  修改B-1-3询价单
      */
-    @RequestMapping("/updateinquiry")
+    /*@RequestMapping("/updateinquiry")
     @ResponseBody
     public void updateinquiry(inquiryDXP inq){
         amqpTemplate.convertAndSend("myqueue",JSON.toJSONString(inq));
-    }
+    }*/
 
     /**
      *

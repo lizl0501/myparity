@@ -18,5 +18,5 @@ public interface InquiryDXPService {
     /**
      *  修改B-1-3询价单
      */
-    void updateinquiry(inquiryDXP inq);
+    //void updateinquiry(inquiryDXP inq);
 }

@@ -5,6 +5,8 @@ import com.jk.pojo.inquiryDXP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 @Service
@@ -18,6 +20,14 @@ public class InquiryDXPServiceImpl implements InquiryDXPService{
     @Override
     public void savainquiry(inquiryDXP inq) {
         inq.setQid(UUID.randomUUID().toString());
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        String dates=df.format(new Date());
+        if (inq.getStratDate().equals("1")){
+            inq.setStratDate(dates);
+        }
+        if (inq.getGongbuDate().equals("1")){
+            inq.setGongbuDate(dates);
+        }
         inquiryDXPMapper.savainquiry(inq);
     }
 
@@ -34,8 +44,8 @@ public class InquiryDXPServiceImpl implements InquiryDXPService{
     /**
      *  修改B-1-3询价单
      */
-    @Override
+   /* @Override
     public void updateinquiry(inquiryDXP inq) {
         inquiryDXPMapper.updateinquiry(inq);
-    }
+    }*/
 }

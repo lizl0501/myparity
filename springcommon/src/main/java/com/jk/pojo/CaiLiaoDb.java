@@ -50,7 +50,9 @@ public class CaiLiaoDb {
     private String middleType;  //中类型
     private String smallType;   //小类型
 
-
+    private String rate;
+    private String caigoubumentwo;
+    private String caigoubumen;
     private String qid;
     private String stratDate;//开始时间
     private String endDate;//结束时间
@@ -76,6 +78,30 @@ public class CaiLiaoDb {
 
     public void setQid(String qid) {
         this.qid = qid;
+    }
+
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public String getCaigoubumentwo() {
+        return caigoubumentwo;
+    }
+
+    public void setCaigoubumentwo(String caigoubumentwo) {
+        this.caigoubumentwo = caigoubumentwo;
+    }
+
+    public String getCaigoubumen() {
+        return caigoubumen;
+    }
+
+    public void setCaigoubumen(String caigoubumen) {
+        this.caigoubumen = caigoubumen;
     }
 
     private String status;// 您是否提供材料单

@@ -2,6 +2,7 @@ package com.jk.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.jk.pojo.CaiLiaoDb;
+import com.jk.pojo.PeiZhi;
 import com.jk.pojo.inquiryDXP;
 import com.jk.service.CldB14Service;
 import com.jk.serviceapi.CldB14ServiceApi;
@@ -9,6 +10,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class CldB14Controller implements CldB14ServiceApi {
@@ -24,4 +27,10 @@ public class CldB14Controller implements CldB14ServiceApi {
     public inquiryDXP queryInquiry(@RequestParam("id") String id) {
         return cldB14Service.queryInquiry(id);
     }
+
+    @Override
+    public List<PeiZhi> querypeizhi() {
+        return cldB14Service.querypeizhi();
+    }
+
 }

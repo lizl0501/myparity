@@ -2,10 +2,12 @@ package com.jk.service;
 
 import com.jk.mapper.CldB14Mapper;
 import com.jk.pojo.CaiLiaoDb;
+import com.jk.pojo.PeiZhi;
 import com.jk.pojo.inquiryDXP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -22,6 +24,11 @@ public class CldB14ServiceImpl implements CldB14Service{
     @Override
     public inquiryDXP queryInquiry(String id) {
         return cldB14Mapper.queryInquiry(id);
+    }
+
+    @Override
+    public List<PeiZhi> querypeizhi() {
+        return cldB14Mapper.querypeizhi();
     }
 
 }

@@ -21,6 +21,9 @@ public class inquiryDXP {
     private String peizhu;// 备注信息
     private String fujian;// 附件
     private String status;// 您是否提供材料单
+    private String rate;
+    private String caigoubumen;
+    private String caigoubumentwo;
 
     private String id;
     private String name;        //产品名称
@@ -47,6 +50,30 @@ public class inquiryDXP {
     private String bigType;     //大类型
     private String middleType;  //中类型
     private String smallType;   //小类型
+
+    public String getCaigoubumen() {
+        return caigoubumen;
+    }
+
+    public void setCaigoubumen(String caigoubumen) {
+        this.caigoubumen = caigoubumen;
+    }
+
+    public String getCaigoubumentwo() {
+        return caigoubumentwo;
+    }
+
+    public void setCaigoubumentwo(String caigoubumentwo) {
+        this.caigoubumentwo = caigoubumentwo;
+    }
+
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
 
     public String getId() {
         return id;

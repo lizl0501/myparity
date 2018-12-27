@@ -7,12 +7,12 @@
 	<insert id="savainquiry">
 		insert into inquiry(qid,stratDate,endDate,gongbuDate,qiwangday,gongyingshang,
 		lowcount,zongjia,fukaunjiedian,fukaunbili,fukaunday,fapiaotype,kaipiao,jiesuanshang,
-		peisong,adress,peizhu,fujian,status,id,name,count,type,minentrance,minenunit,
+		peisong,adress,peizhu,fujian,status,rate,caigoubumen,caigoubumentwo,id,name,count,type,minentrance,minenunit,
 		maxentrance,maxenunit,minexport,minexunit,maxexport,maxexunit,flow,booster,brand,
 		carton,material,remarks,accessory,demand,trench,bigType,middleType,smallType)
 		 values (#{inq.qid},#{inq.stratDate},#{inq.endDate},#{inq.gongbuDate},#{inq.qiwangday},#{inq.gongyingshang},
 		 #{inq.lowcount},#{inq.zongjia},#{inq.fukaunjiedian},#{inq.fukaunbili},#{inq.fukaunday},#{inq.fapiaotype},#{inq.kaipiao},
-		 #{inq.jiesuanshang},#{inq.peisong},#{inq.adress},#{inq.peizhu},#{inq.fujian},#{inq.status},#{inq.id},
+		 #{inq.jiesuanshang},#{inq.peisong},#{inq.adress},#{inq.peizhu},#{inq.fujian},#{inq.status},#{inq.rate},#{inq.caigoubumen},#{inq.caigoubumentwo},#{inq.id},
 		 #{inq.name},#{inq.count},#{inq.type},#{inq.minentrance},#{inq.minenunit},#{inq.maxentrance},
 		 #{inq.maxenunit},#{inq.minexport},#{inq.minexunit},#{inq.maxexport},#{inq.maxexunit},#{inq.flow},
 		 #{inq.booster},#{inq.brand},#{inq.carton},#{inq.material},#{inq.remarks},#{inq.accessory},#{inq.demand},
@@ -79,6 +79,15 @@
 		</if>
 		<if test="inq.status != null">
 			status=#{inq.status},
+		</if>
+		<if test="inq.rate != null">
+			rate=#{inq.rate},
+		</if>
+		<if test="inq.caigoubumen != null">
+			caigoubumen=#{inq.caigoubumen},
+		</if>
+		<if test="inq.caigoubumentwo != null">
+			caigoubumentwo=#{inq.caigoubumentwo},
 		</if>
 		<if test="inq.id != null">
 			id=#{inq.id},

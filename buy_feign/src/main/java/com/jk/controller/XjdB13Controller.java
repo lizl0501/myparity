@@ -9,9 +9,10 @@ import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -26,12 +27,13 @@ public class XjdB13Controller {
 
     @Autowired
     private RedisTemplate redisCacheTemplate;
+
     /**
-     *  新增B-1-3询价单
+     *  新增B-1-3询价单  保存到数据库
      */
-    @RequestMapping("/insertinquiry")
+    @PostMapping("/insertinquiry")
     @ResponseBody
-    public String insertinquiry(inquiryDXP inq){
+    public void insertinquiry(inquiryDXP inq){
         CustomBean customBean = (CustomBean) redisCacheTemplate.opsForValue().get("custom");
         XzlmCustomBean xzlm = (XzlmCustomBean) redisCacheTemplate.opsForValue().get("asd");
         inq.setId(customBean.getId());
@@ -58,8 +60,7 @@ public class XjdB13Controller {
         inq.setBigType(xzlm.getBigType());
         inq.setMiddleType(xzlm.getMiddleType());
         inq.setSmallType(xzlm.getSmallType());
-        amqpTemplate.convertAndSend("myqueue",JSON.toJSONString(inq));
-        return "123";
+        amqpTemplate.convertAndSend("addinquir",JSON.toJSONString(inq));
     }
 
     /**
@@ -77,12 +78,16 @@ public class XjdB13Controller {
     /**
      *  修改B-1-3询价单
      */
-    @RequestMapping("/updateinquiry")
+    /*@RequestMapping("/updateinquiry")
     @ResponseBody
     public void updateinquiry(inquiryDXP inq){
         amqpTemplate.convertAndSend("myqueue",JSON.toJSONString(inq));
-    }
+    }*/
 
+    /**
+     *
+     * 保存到redis
+     * */
     @RequestMapping("/saveinquiry")
     @ResponseBody
     public String setString(inquiryDXP iii){

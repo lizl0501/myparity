@@ -20,5 +20,5 @@ public interface InquiryDXPMapper {
     /**
      *  修改B-1-3询价单
      */
-    void updateinquiry(@Param("inq") inquiryDXP inq);
+    //void updateinquiry(@Param("inq") inquiryDXP inq);
 }

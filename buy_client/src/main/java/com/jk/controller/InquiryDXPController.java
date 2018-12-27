@@ -19,7 +19,7 @@ public class InquiryDXPController implements XjdB221Api {
     /**
      *  新增B-1-3询价单
      */
-    @RabbitListener(queues = "myqueue")
+    @RabbitListener(queues = "addinquir")
     public void savainquiry(String message){
         inquiryDXP inq = JSON.parseObject(message, inquiryDXP.class);
         inquiryDXPService.savainquiry(inq);
@@ -27,11 +27,11 @@ public class InquiryDXPController implements XjdB221Api {
     /**
      *  修改B-1-3询价单
      */
-    @RabbitListener(queues = "myqueue")
+   /* @RabbitListener(queues = "myqueue")
     public void updateinquiry(String message){
         inquiryDXP inq = JSON.parseObject(message, inquiryDXP.class);
         inquiryDXPService.updateinquiry(inq);
-    }
+    }*/
 
     /**
      * 回显询价单

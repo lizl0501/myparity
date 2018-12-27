@@ -1,15 +1,13 @@
 package com.jk.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.jk.pojo.inquiryDXP;
+import com.jk.pojo.CaiLiaoDb;
 import com.jk.service.CustomService;
 import com.jk.serviceapi.CustomServiceApi;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.HashMap;
 
 @RestController
 public class CustomController implements CustomServiceApi {
@@ -17,4 +15,9 @@ public class CustomController implements CustomServiceApi {
     @Autowired
     private CustomService customService;
 
+    @Override
+    public HashMap<String, Object> queryCaiLiaoDb(@RequestBody CaiLiaoDb caiLiaoDb, Integer page, Integer rows) {
+
+        return customService.queryCaiLiaoDb(caiLiaoDb,page,rows);
+    }
 }

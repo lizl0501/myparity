@@ -22,6 +22,7 @@ public class inquiryDXP {
     private String fujian;// 附件
     private String status;// 您是否提供材料单
 
+    private String id;
     private String name;        //产品名称
     private String count;       //产品数量
     private String type;        //产品类型
@@ -46,6 +47,14 @@ public class inquiryDXP {
     private String bigType;     //大类型
     private String middleType;  //中类型
     private String smallType;   //小类型
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTrench() {
         return trench;

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.CldB14Mapper">
+
+<insert id="addCld">
+	insert into clbdb(cid,moban,peizhiid,counts,fuwuxiang,qid,stratDate,endDate,gongbuDate,qiwangday,gongyingshang,
+		lowcount,zongjia,fukaunjiedian,fukaunbili,fukaunday,fapiaotype,kaipiao,jiesuanshang,
+		peisong,adress,peizhu,fujian,status,id,name,count,type,minentrance,minenunit,
+		maxentrance,maxenunit,minexport,minexunit,maxexport,maxexunit,flow,booster,brand,
+		carton,material,remarks,accessory,demand,trench,bigType,middleType,smallType)
+		 values (#{cld.cid},#{cld.moban},#{cld.peizhiid},#{cld.counts},#{cld.fuwuxiang},#{cld.qid},#{cld.stratDate},#{cld.endDate},
+		 #{cld.gongbuDate},#{cld.qiwangday},#{cld.gongyingshang},#{cld.lowcount},#{cld.zongjia},#{cld.fukaunjiedian},#{cld.fukaunbili},
+		 #{cld.fukaunday},#{cld.fapiaotype},#{cld.kaipiao},#{cld.jiesuanshang},#{cld.peisong},#{cld.adress},#{cld.peizhu},#{cld.fujian},
+		 #{cld.status},#{cld.id},#{cld.name},#{cld.count},#{cld.type},#{cld.minentrance},#{cld.minenunit},#{cld.maxentrance},
+		 #{cld.maxenunit},#{cld.minexport},#{cld.minexunit},#{cld.maxexport},#{cld.maxexunit},#{cld.flow},
+		 #{cld.booster},#{cld.brand},#{cld.carton},#{cld.material},#{cld.remarks},#{cld.accessory},#{cld.demand},
+		 #{cld.trench},#{cld.bigType},#{cld.middleType},#{cld.smallType})
+</insert>
+<select id="queryInquiry" resultType="com.jk.pojo.inquiryDXP">
+	select * from inquiry where qid=(#{id})
+</select>
+</mapper>

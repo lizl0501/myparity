@@ -13,6 +13,11 @@ public class RabbitConfig {
         //参数为队列名称
         return new Queue("myqueue");
     }
+    @Bean
+    public Queue addqueue() {
+        //参数为队列名称
+        return new Queue("addcailiao");
+    }
 
     @Bean
     public Queue savePollingFigureMQ() {

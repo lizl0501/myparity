@@ -5,10 +5,11 @@ import java.util.Date;
 public class PollingFigureBean {
 //询图
     private String pollingfigureid; //主题id
-    private Date startdate;  //开始日期
-    private Date customdate; //自定义日期
-    private Date asofthedate; //截止日期
-    private Date resultsreleasedate; //结果公布日期
+    private String pollingfigurestatus="0"; //询图状态
+    private String startdate;  //开始日期
+    private String customdate; //自定义日期
+    private String asofthedate; //截止日期
+    private String resultsreleasedate; //结果公布日期
     private String purchaserid; //采购商id
     private String thecontact; //联系人
     private String contactphonenumber; //联系电话
@@ -62,6 +63,13 @@ public class PollingFigureBean {
     private String smallType;   //小类型
 
 
+    public String getPollingfigurestatus() {
+        return pollingfigurestatus;
+    }
+
+    public void setPollingfigurestatus(String pollingfigurestatus) {
+        this.pollingfigurestatus = pollingfigurestatus;
+    }
 
     public String getPollingfigureid() {
         return pollingfigureid;
@@ -71,35 +79,35 @@ public class PollingFigureBean {
         this.pollingfigureid = pollingfigureid;
     }
 
-    public Date getStartdate() {
+    public String getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(Date startdate) {
+    public void setStartdate(String startdate) {
         this.startdate = startdate;
     }
 
-    public Date getCustomdate() {
+    public String getCustomdate() {
         return customdate;
     }
 
-    public void setCustomdate(Date customdate) {
+    public void setCustomdate(String customdate) {
         this.customdate = customdate;
     }
 
-    public Date getAsofthedate() {
+    public String getAsofthedate() {
         return asofthedate;
     }
 
-    public void setAsofthedate(Date asofthedate) {
+    public void setAsofthedate(String asofthedate) {
         this.asofthedate = asofthedate;
     }
 
-    public Date getResultsreleasedate() {
+    public String getResultsreleasedate() {
         return resultsreleasedate;
     }
 
-    public void setResultsreleasedate(Date resultsreleasedate) {
+    public void setResultsreleasedate(String resultsreleasedate) {
         this.resultsreleasedate = resultsreleasedate;
     }
 
@@ -339,10 +347,11 @@ public class PollingFigureBean {
     public String toString() {
         return "PollingFigureBean{" +
                 "pollingfigureid='" + pollingfigureid + '\'' +
-                ", startdate=" + startdate +
-                ", customdate=" + customdate +
-                ", asofthedate=" + asofthedate +
-                ", resultsreleasedate=" + resultsreleasedate +
+                ", pollingfigurestatus='" + pollingfigurestatus + '\'' +
+                ", startdate='" + startdate + '\'' +
+                ", customdate='" + customdate + '\'' +
+                ", asofthedate='" + asofthedate + '\'' +
+                ", resultsreleasedate='" + resultsreleasedate + '\'' +
                 ", purchaserid='" + purchaserid + '\'' +
                 ", thecontact='" + thecontact + '\'' +
                 ", contactphonenumber='" + contactphonenumber + '\'' +

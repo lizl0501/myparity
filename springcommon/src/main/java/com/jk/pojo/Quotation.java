@@ -4,14 +4,6 @@ public class Quotation {
 
     private String id;      //主键id
 
-    private String category;    //类目
-
-    private String name;    //物料名称
-
-    private String number;  //物料编码
-
-    private String count;   //数量
-
     private String brand;   //品牌
 
     private String price;   //单价
@@ -36,44 +28,16 @@ public class Quotation {
 
     private String quotationtime;//报价时间
 
+    private String materials;   //材料表id
+
+    private String userid;      //登录人id
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getCount() {
-        return count;
-    }
-
-    public void setCount(String count) {
-        this.count = count;
     }
 
     public String getBrand() {
@@ -170,5 +134,21 @@ public class Quotation {
 
     public void setQuotationtime(String quotationtime) {
         this.quotationtime = quotationtime;
+    }
+
+    public String getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(String materials) {
+        this.materials = materials;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 }

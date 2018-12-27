@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.mapper.PollingfigureB1Mapper">
+
+	<select id="selectPollingFigure" resultType="com.jk.pojo.PollingFigureBean">
+		select * from  t_pollingfigure
+	</select>
+
+	<insert id="savePollingFigure">
+		insert into t_pollingfigure(pollingfigureid,pollingfigurestatus,startdate,customdate,asofthedate,resultsreleasedate,purchaserid,thecontact,
+		contactphonenumber,email,noteinformation,theattachment,name,count,type,minentrance,minenunit,maxentrance,maxenunit,minexport,
+		minexunit,maxexport,maxexunit,flow,booster,brand,carton,material,remarks,accessory,demand,trench,bigType,middleType,smallType)
+		values (#{pollingFigureBean.pollingfigureid},#{pollingFigureBean.pollingfigurestatus},#{pollingFigureBean.startdate},#{pollingFigureBean.customdate},#{pollingFigureBean.asofthedate},
+		#{pollingFigureBean.resultsreleasedate},#{pollingFigureBean.purchaserid},#{pollingFigureBean.thecontact},#{pollingFigureBean.contactphonenumber},
+		#{pollingFigureBean.email},#{pollingFigureBean.noteinformation},#{pollingFigureBean.theattachment},#{pollingFigureBean.name},#{pollingFigureBean.count},#{pollingFigureBean.type},
+		#{pollingFigureBean.minentrance},#{pollingFigureBean.minenunit},#{pollingFigureBean.maxentrance},#{pollingFigureBean.maxenunit},
+		#{pollingFigureBean.minexport},#{pollingFigureBean.minexunit},#{pollingFigureBean.maxexport},#{pollingFigureBean.maxexunit},
+		#{pollingFigureBean.flow},#{pollingFigureBean.booster},#{pollingFigureBean.brand},#{pollingFigureBean.carton},#{pollingFigureBean.material},
+		#{pollingFigureBean.remarks},#{pollingFigureBean.accessory},#{pollingFigureBean.demand},#{pollingFigureBean.trench},#{pollingFigureBean.bigType},
+		#{pollingFigureBean.middleType},#{pollingFigureBean.smallType})
+    </insert>
+</mapper>

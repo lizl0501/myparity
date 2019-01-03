@@ -3,6 +3,7 @@ package com.jk.controller;
 import com.alibaba.fastjson.JSON;
 import com.jk.pojo.CaiLiaoDb;
 import com.jk.pojo.CustomBean;
+import com.jk.pojo.PeiZhi;
 import com.jk.pojo.inquiryDXP;
 import com.jk.service.CldB14Service;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -11,6 +12,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class CldB14Controller {
@@ -27,8 +30,11 @@ public class CldB14Controller {
     @ResponseBody
     public void addCldB14(CaiLiaoDb caiLiaoDb){
         CustomBean customBean = (CustomBean) redisCacheTemplate.opsForValue().get("custom");
-        String id="6fe2c3d2-5d0a-4161-bec1-2bbec43a3115";
+        String id=customBean.getId();
         inquiryDXP indp=cldB14Service.queryInquiry(id);
+        if (indp == null){
+            indp = (inquiryDXP) redisCacheTemplate.opsForValue().get("str");
+        }
         System.out.println(indp);
         caiLiaoDb.setId(customBean.getId());
         caiLiaoDb.setName(indp.getName());
@@ -73,6 +79,15 @@ public class CldB14Controller {
         caiLiaoDb.setPeizhu(indp.getPeizhu());
         caiLiaoDb.setFujian(indp.getFujian());
         caiLiaoDb.setStatus(indp.getStatus());
+        caiLiaoDb.setRate(indp.getRate());
+        caiLiaoDb.setCaigoubumentwo(indp.getCaigoubumentwo());
+        caiLiaoDb.setCaigoubumen(indp.getCaigoubumen());
         amqpTemplate.convertAndSend("addcailiao", JSON.toJSONString(caiLiaoDb));
+    }
+
+    @RequestMapping("querypeizhi")
+    @ResponseBody
+    public List<PeiZhi> querypeizhi() {
+       return cldB14Service.querypeizhi();
     }
 }

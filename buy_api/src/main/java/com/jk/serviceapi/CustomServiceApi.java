@@ -9,7 +9,7 @@ import java.util.HashMap;
 @RequestMapping("CustomServiceApi")
 public interface CustomServiceApi {
 
-    HashMap<String, Object> queryCaiLiaoDb( CaiLiaoDb caiLiaoDb,@RequestParam("page") Integer page, @RequestParam("rows") Integer rows);
+   // HashMap<String, Object> queryCaiLiaoDb( CaiLiaoDb caiLiaoDb,@RequestParam("page") Integer page, @RequestParam("rows") Integer rows);
 
 
 }
